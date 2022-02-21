@@ -1,6 +1,6 @@
 # Remote Performance Monitor
 
-![png](https://github.com/kotabrog/ft_mini_ls/blob/main/image/ft_mini_ls.gif)
+![png](https://github.com/nakai-kosuke/remote_performance_monitor/blob/main/img/Show.png)
 
 # Overview
 Windwos上でLinuxPCのCPU,GPU使用率を確認できます.
