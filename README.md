@@ -18,7 +18,7 @@ Operation has been confirmed on Windows 10 and Ubuntu 20.04LTS.
 # Features
 - SSHを用いてLinuxPCにコマンドを送信し，情報を得ています．\
 Sending commands to a Linux PC using SSH to obtain information.
-- 使用しているコマンド(Uage Command)
+- 使用しているコマンド(Use Command)
     - CPU Info
         - vmstat
         - free
