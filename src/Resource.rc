@@ -1,0 +1,166 @@
+/*!
+Resource.rc
+
+Copyright (c) 2022 Kosuke Nakai
+
+This software is released under the MIT License.
+http://opensource.org/licenses/mit-license.php
+*/
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 (日本) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_SETTING DIALOGEX 0, 0, 255, 134
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Setting"
+FONT 10, "メイリオ", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,143,113,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,198,113,50,14
+    LTEXT           "IP Address",IDC_STATIC,14,19,59,8
+    LTEXT           "User Name",IDC_STATIC,14,36,59,8
+    LTEXT           "Password",IDC_STATIC,14,54,59,8
+    EDITTEXT        IDC_IPADDRESS1,83,16,78,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_USER,83,34,77,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PASSWORD,83,52,77,12,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_SETTING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 248
+        VERTGUIDE, 14
+        VERTGUIDE, 83
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 127
+        HORZGUIDE, 23
+        HORZGUIDE, 40
+        HORZGUIDE, 58
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG_SETTING AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU
+BEGIN
+    POPUP "Setting(&S)"
+    BEGIN
+        MENUITEM "Connection Setting(&C)",      ID_CONNECT_SETTING
+    END
+    POPUP "Show(&V)"
+    BEGIN
+        MENUITEM "Keep Top(&T)",                IDM_TOPMOST, CHECKED
+    END
+    POPUP "Tools(&T)"
+    BEGIN
+        MENUITEM "SSH Terminal(&S)",            IDM_SSH_OPEN
+        MENUITEM "Remote Desktop(&R)",          IDM_REMOTEDESKTOP
+    END
+END
+
+IDR_MENU2 MENU
+BEGIN
+    POPUP "List"
+    BEGIN
+        MENUITEM "kill",                        40003
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "icon.ico"
+
+#endif    // 日本語 (日本) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
