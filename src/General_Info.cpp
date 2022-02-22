@@ -513,13 +513,12 @@ map<string, string> GetGeneralInfo(SSH& ssh){
 		string cpu_cmd = "vmstat";
 		ssh.ExecCmd((char*)cpu_cmd.c_str(), buffer);
 		auto g_info = csv2vector(pack_space(buffer),0,' ');
-		/*for(auto itr = g_info[2].begin(); itr != g_info[2].end(); ++itr){
-			if(itr->compare("") != 0){
-				dummy.push_back(*itr);
-			}
-		}*/
-		info["cpu_util"] = to_string(100 - stoi(g_info[2][15]));
 
+		if(g_info[2][0] == ""){
+			info["cpu_util"] = to_string(100 - stoi(g_info[2][15]));
+		} else{
+			info["cpu_util"] = to_string(100 - stoi(g_info[2][14]));
+		}
 		string temp_file = "/sys/devices/platform/coretemp.?/hwmon/hwmon?/temp?_input";
 		memset(buffer, 0, sizeof(buffer));
 		string temp_cmd = "cat ";
