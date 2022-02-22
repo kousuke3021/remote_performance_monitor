@@ -1,6 +1,14 @@
+/*!
+resource.h
+
+Copyright (c) 2022 Kosuke Nakai
+
+This software is released under the MIT License.
+http://opensource.org/licenses/mit-license.php
+*/
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ ‚Å¶¬‚³‚ê‚½ƒCƒ“ƒNƒ‹[ƒh ƒtƒ@ƒCƒ‹B
-// Resource.rc ‚Åg—p
+// Microsoft Visual C++ ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Cï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½h ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½B
+// Resource.rc ï¿½Ågï¿½p
 //
 #define IDD_DIALOG_SETTING              101
 #define IDR_MENU1                       103

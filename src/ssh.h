@@ -1,3 +1,11 @@
+/*!
+ssh.h
+
+Copyright (c) 2022 Kosuke Nakai
+
+This software is released under the MIT License.
+http://opensource.org/licenses/mit-license.php
+*/
 #pragma once
 #define _WINSOCKAPI_
 #define _WINSOCK_DEPRECATED_NO_WARNINGS

@@ -9,15 +9,16 @@ Check the CPU and GPU usage of Linux PC remotely from Windows.
 
 # Requirement
 - Windows10
-- VisualStudio2019
-- [OpenSSLurl](https://github.com/openssl/openssl)
-- [libssh2url](https://github.com/libssh2/libssh2)
+- [OpenSSL](https://github.com/openssl/openssl)
+- [libssh2](https://github.com/libssh2/libssh2)
 
 Windows10,Ubuntu20.04LTS において動作確認済み  
 Operation has been confirmed on Windows 10 and Ubuntu 20.04LTS.
 # Features
 - SSHを用いてLinuxPCにコマンドを送信し，情報を得ています．\
-Sending commands to a Linux PC using SSH to obtain information.
+Sending commands to a Linux PC using SSH to obtain information.   
+- 前回の接続情報はAES-128を用いて暗号化して保存し，次回起動時に自動的に接続を行います．  
+The previous connection information is encrypted and saved using AES-128, and the connection is automatically established at the next startup.
 - 使用しているコマンド(Use Command)
     - CPU Info
         - vmstat
@@ -33,6 +34,18 @@ Sending commands to a Linux PC using SSH to obtain information.
                             uuid,name,timestamp,memory.total,memory.used,\
                             utilization.gpu,utilization.memory,temperature.gpu,power.draw,power.limit
         - nvidia-smi --format=csv,noheader,nounits --query-compute-apps=gpu_uuid,pid,process_name,used_memory
+
+# Build
+- Requirement
+    - VisualStudio2019
+    - CMake GUI
+    - WindowsSDK
+    - [OpenSSL](https://github.com/openssl/openssl)
+    - [libssh2](https://github.com/libssh2/libssh2)
+
+- Install  
+Cmake GUIを使用してプロジェクトを生成し，VisualStudioでBuildしてください.  
+Generate the project using Cmake GUI, and Build it with VisualStudio.
 
 # License
 The source code is licensed MIT.

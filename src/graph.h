@@ -1,3 +1,11 @@
+/*!
+graph.h
+
+Copyright (c) 2022 Kosuke Nakai
+
+This software is released under the MIT License.
+http://opensource.org/licenses/mit-license.php
+*/
 #pragma once
 #include<windows.h>
 #include<deque>
