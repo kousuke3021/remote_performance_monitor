@@ -259,7 +259,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT msg,WPARAM wp,LPARAM lp){
 				STARTUPINFO         tStartupInfo = {0};
 				PROCESS_INFORMATION tProcessInfomation = {0};
 				char text[256];
-				snprintf(text, 64, "cmd /K ssh %s@%s",ci.user,ci.hostname);
+				snprintf(text, 64, "cmd /K ssh %s@%s",ci.user.c_str(),ci.hostname.c_str());
 				MultiByteToWideChar(CP_THREAD_ACP, MB_PRECOMPOSED, text, 64, wtext, 64);
 				BOOL bResult = CreateProcess(
 					NULL
@@ -281,7 +281,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT msg,WPARAM wp,LPARAM lp){
 				STARTUPINFO         tStartupInfo = {0};
 				PROCESS_INFORMATION tProcessInfomation = {0};
 				char text[256];
-				snprintf(text, 64, "mstsc.exe /v %s", ci.hostname);
+				snprintf(text, 64, "mstsc.exe /v %s", ci.hostname.c_str());
 				MultiByteToWideChar(CP_THREAD_ACP, MB_PRECOMPOSED, text, 64, wtext, 64);
 				BOOL bResult = CreateProcess(
 					NULL

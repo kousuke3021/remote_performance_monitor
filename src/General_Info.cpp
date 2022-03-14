@@ -160,6 +160,7 @@ void General_Info::Update(map<string, string> info, vector<vector<string>> proce
 		}
 		Sort(sort_index,sort_direction);
 		ListView_SetItemCountEx(hList, count, LVSICF_NOINVALIDATEALL);
+		ListView_EnsureVisible(hList, ListView_GetTopIndex(hList), TRUE);
 	}
 }
 
@@ -620,7 +621,8 @@ vector<vector<string>> GetGeneralProcess(SSH& ssh){
 LRESULT CALLBACK ListProc(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp, UINT_PTR uIdSubclass, DWORD_PTR dwRefData){
 	switch(msg){
 		case WM_TIMER:
-			KillTimer(hWnd, wp);
+			ListView_EnsureVisible(hWnd, ListView_GetTopIndex(hWnd), TRUE);
+			//KillTimer(hWnd, wp);
 			return 0;
 	}
 	return DefSubclassProc(hWnd, msg, wp, lp);

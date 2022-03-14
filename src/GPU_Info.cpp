@@ -136,21 +136,19 @@ void GPU_Info::Update(map<string, string> info,vector<vector<string>> process_){
 		power.SetMinMax(0, val_power_limit);
 		power.update(val_power);
 	}
-	if(process_.size() >= 1){
-		int count = 0;
-		wchar_t wtext[256];
-		char text[256];
-		process.clear();
-		for(auto itr = process_.begin(); itr != process_.end(); ++itr){
-			if((*itr)[0].compare(uuid) == 0){
-				vector<string> temp = {(*itr)[1],(*itr)[2],(*itr)[3]};
-				process.emplace_back(temp);
-				++count;
-			}
+	int count = 0;
+	wchar_t wtext[256];
+	char text[256];
+	process.clear();
+	for(auto itr = process_.begin(); itr != process_.end(); ++itr){
+		if((*itr)[0].compare(uuid) == 0){
+			vector<string> temp = {(*itr)[1],(*itr)[2],(*itr)[3]};
+			process.emplace_back(temp);
+			++count;
 		}
-		Sort(sort_index, sort_direction);
-		ListView_SetItemCountEx(hList, count, LVSICF_NOINVALIDATEALL);
 	}
+	Sort(sort_index, sort_direction);
+	ListView_SetItemCountEx(hList, count, LVSICF_NOINVALIDATEALL);
 }
 
 void GPU_Info::Sort(int index, int dir){

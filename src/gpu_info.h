@@ -31,7 +31,7 @@ class GPU_Info{
 		Graph temp;
 		Graph power;
 		Graph mem;
-		HWND hWnd, hParent, hList;
+		HWND hWnd = NULL, hParent = NULL, hList;
 		HINSTANCE hInst;
 		HBITMAP hBitmap = NULL;
 		HDC hdcMem;

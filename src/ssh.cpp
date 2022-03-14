@@ -198,25 +198,35 @@ int SSH::ExecCmd(char* cmd,char*buffer){
     int rc;
     int bytecount = 0;
     int exit_code;
-
+    int wait_cnt = 0;
     /* Exec non-blocking on the remove host */
     while((channel = libssh2_channel_open_session(session)) == NULL &&
         libssh2_session_last_error(session, NULL, NULL, 0) ==
         LIBSSH2_ERROR_EAGAIN){
         waitsocket(sock, session);
+        if(wait_cnt > 20){
+            return -2;
+        }
+        wait_cnt++;
     }
     if(channel == NULL){
         fprintf(stderr, "Error\n");
         return -1;
     }
+    wait_cnt = 0;
     while((rc = libssh2_channel_exec(channel, cmd)) ==
         LIBSSH2_ERROR_EAGAIN){
         waitsocket(sock, session);
+        if(wait_cnt > 20){
+            return -2;
+        }
+        wait_cnt++;
     }
     if(rc != 0){
         fprintf(stderr, "Error\n");
         return -1;
     }
+    wait_cnt = 0;
     for(;;){
         /* loop until we block */
         int rc;
@@ -225,6 +235,7 @@ int SSH::ExecCmd(char* cmd,char*buffer){
             if(rc > 0){
                 buffer += rc;
                 //*(buffer++) = '\n';
+                wait_cnt = 0;
             }else{
                 if(rc != LIBSSH2_ERROR_EAGAIN){
                     /* no need to output this for the EAGAIN case */
@@ -237,6 +248,10 @@ int SSH::ExecCmd(char* cmd,char*buffer){
             this condition */
         if(rc == LIBSSH2_ERROR_EAGAIN){
             waitsocket(sock, session);
+            if(wait_cnt > 20){
+                return -2;
+            }
+            wait_cnt++;
         } else
             break;
     }
