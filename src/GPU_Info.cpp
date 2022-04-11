@@ -407,21 +407,26 @@ vector<map<string, string>> GetGPUInfo(SSH& ssh){
 						",utilization.memory,temperature.gpu,power.draw,power.limit";
 
 	if(ssh.connect_flag){
-		ssh.ExecCmd((char*)gpu_cmd.c_str(), buffer);
-		dummy = csv2vector(pack_space(buffer));
-		for(int i = 0; i < dummy.size(); i++){
-			info["index"] = dummy[i][0];
-			info["uuid"] = replace(dummy[i][1]," ","");
-			info["name"] = dummy[i][2];
-			info["timestamp"] = dummy[i][3];
-			info["memory.total"] = dummy[i][4];
-			info["memory.used"] = dummy[i][5];
-			info["utilization.gpu"] = dummy[i][6];
-			info["utilization.memory"] = dummy[i][7];
-			info["temperature.gpu"] = dummy[i][8];
-			info["power.draw"] = dummy[i][9];
-			info["power.limit"] = dummy[i][10];
-			infos.emplace_back(info);
+		try{
+			ssh.ExecCmd((char*)gpu_cmd.c_str(), buffer);
+			dummy = csv2vector(pack_space(buffer));
+			for(int i = 0; i < dummy.size(); i++){
+				info["index"] = dummy[i][0];
+				info["uuid"] = replace(dummy[i][1], " ", "");
+				info["name"] = dummy[i][2];
+				info["timestamp"] = dummy[i][3];
+				info["memory.total"] = dummy[i][4];
+				info["memory.used"] = dummy[i][5];
+				info["utilization.gpu"] = dummy[i][6];
+				info["utilization.memory"] = dummy[i][7];
+				info["temperature.gpu"] = dummy[i][8];
+				info["power.draw"] = dummy[i][9];
+				info["power.limit"] = dummy[i][10];
+				infos.emplace_back(info);
+			}
+		} catch(...){
+			map<string, string> info;
+			return infos;
 		}
 		return infos;
 	}
